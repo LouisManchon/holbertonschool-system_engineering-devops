@@ -6,19 +6,19 @@
 
 ```mermaid
 flowchart TD
-    A[User\nBrowser] -->|1. HTTP Request| B[DNS\nResolver]
-    B -->|2. Resolves\nwww.foobar.com → 8.8.8.8| C[Web Server\nUbuntu 22.04 LTS\n8.8.8.8]
+    A[Utilisateur] -->|1. Requête HTTP| B[DNS]
+    B -->|2. Résolution: 8.8.8.8| C[Serveur\nUbuntu 22.04]
 
-    subgraph Server["Single Server (LAMP Stack)"]
+    subgraph Serveur["Serveur LAMP (8.8.8.8)"]
         C --> D[Nginx\nPort 80]
-        D -->|Static Files| E[/var/www/html\nHTML/CSS/JS]
-        D -->|Dynamic Requests| F[PHP-FPM\nPort 9000]
-        F -->|SQL Queries| G[(MySQL\nPort 3306)]
-        G -->|Query Results| F
-        F -->|Processed Content| D
+        D -->|Fichiers statiques| E[/HTML/CSS/JS/]
+        D -->|Requête dynamique| F[PHP-FPM]
+        F -->|Requêtes SQL| G[(MySQL\nPort 3306)]
+        G -->|Données| F
+        F -->|Réponse PHP| D
     end
 
-    D -->|3. HTTP Response| A
+    D -->|3. Réponse HTTP| A
 
     style A fill:#f9f,stroke:#333
     style B fill:#bbf,stroke:#333
@@ -27,7 +27,6 @@ flowchart TD
     style F fill:#6f6,stroke:#333
     style G fill:#66f,stroke:#333
     style E fill:#ff9,stroke:#333
-
 
 ---
 
