@@ -2,7 +2,8 @@
 
 ## 📊 Diagramme d'Infrastructure
 
-Voir README.md
+
+[Check  README.md](./README.md)
 
 ---
 
